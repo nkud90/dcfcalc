@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCF Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="dcf.js"></script>
+</head>
+
+<body>
+    <h1>DCF Calculator</h1>
+    <p>The tool calculates the intrinsic (fair) value of a cash flow generating investment object using the discounted cash flow (DCF) method.</p>
+    <form class="form" onsubmit="return false;" id="value-form">         
+        <div>
+            <label for="eps">
+                Net income per year. EPS (Earnings per share) in case of valuing a stock.
+            </label><br>
+            <input type="text" name="eps" value="" class="input" required="true" id="eps">
+        </div>
+
+        <div>
+            <label for="growthRate">
+                Growth rate, %
+            </label><br>
+            <input type="text" name="growthRate" value="10" class="input" required="true" id="growthRate">
+        </div>
+
+        <div>
+            <label for="growthDuration">
+                Growth duration, years
+            </label><br>
+            <input type="text" name="growthDuration" value="3" class="input" required="true" id="growthDuration">
+        </div>
+    
+        <div>
+            <label for="discountRate">
+                Discount rate, %
+            </label><br>
+            <input type="text" name="discountRate" value="9" class="input" required="true" id="discountRate">
+        </div>
+        
+        <div>
+            <label for="terminalGrowthAfter">
+                Terminal growth after, years
+            </label><br>
+            <input type="text" name="terminalGrowthAfter" value="10" class="input" required="true" id="terminalGrowthAfter">
+        </div>
+        
+        <div>
+            <label for="terminalGrowthRate">
+                Terminal growth rate, %
+            </label><br>
+            <input type="text" name="terminalGrowthRate" value="2" class="input" required="true" id="terminalGrowthRate">
+        </div>
+        <br>
+        <div>
+            <button type="button" tabindex="1" onclick="calculate(); return false;">
+                Calculate
+            </button>
+            <button type="reset" tabindex="2" onclick="resetView(); return false;">
+                Reset
+            </button>
+        </div>
+    </form>   
+    <br>
+    <div class="results">
+        <div class="result-label">Intrinsic value:</div>
+        <div class="result" id="result-intrinsic-value">0</div>
+    </div>
+</body>
+
+</html>
